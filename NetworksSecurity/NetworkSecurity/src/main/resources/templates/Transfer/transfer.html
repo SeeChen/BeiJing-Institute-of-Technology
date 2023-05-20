@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>转账</title>
+
+  <meta charset = "UTF-8" />
+
+  <meta name = "author" content = "SeeChen"/>
+
+  <style>
+
+    a {
+      text-decoration: none;
+      color : inherit;
+    }
+
+    * {
+
+      padding : 0;
+      margin : 0;
+    }
+
+    html, body {
+
+      background : #212F3D
+    }
+
+    #nav_bar {
+
+      width : 95%;
+      height : 4em;
+      position : fixed;
+      margin : 1em auto;
+      left : 0;
+      right : 0;
+      background : rgba(234, 236, 238, 0.5);
+      border-radius: 1em;
+      backdrop-filter: blur(0.25em);
+      box-shadow: 1px 5px 5px #000;
+      z-index: 100;
+      top : 0;
+    }
+
+    #nav_bar table {
+
+      table-layout: fixed;
+      width : 95%;
+      height : 100%;
+      margin : auto;
+      text-align : center;
+    }
+
+    #nav_bar table ul {
+
+      list-style-type:  none;
+    }
+
+    #nav_bar table #nav_right_side li {
+
+      float : right;
+    }
+
+    #nav_bar table #nav_left_side li {
+
+      float : left;
+      color : #fff;
+      padding : 0.5em;
+      cursor: pointer;
+      transition : color 0.15s;
+    }
+
+    #nav_bar table #nav_left_side li:hover {
+
+      color : rgba(255, 255, 255, 0.5);
+    }
+
+    #btn-logout {
+
+      color : red;
+      border-radius : 1em;
+      border : 2px solid red;
+      padding : 0.5em 1em;
+      cursor: pointer;
+      transition : all 0.5s;
+    }
+
+    #btn-logout:hover {
+
+      background : rgba(255, 255, 255, 0.5);
+    }
+
+    .tips {
+
+      color : #fff;
+      font-size: 2em;
+      width : 80%;
+      margin : auto;
+      margin-top : 3em;
+    }
+
+    .text-edit {
+
+      color : #fff;
+      width : 80%;
+      margin : auto;
+      border-radius: 1em;
+      border : 2px solid #fff;
+      font-size : 1.6em;
+      padding : 0.25em 0.5em;
+      margin-top : 0.15em;
+      background: none;
+      display: block;
+    }
+
+    #submit-button {
+
+      color : #fff;
+      width  : 25%;
+      padding : 0.5em;
+      font-size : 1.5em;
+      margin : 1.5em auto;
+      text-align : center;
+      border-radius : 1em;
+      border : 0.15em solid #ccc;
+      transition : all 0.5s;
+      background : rgba(255, 255, 255, 0);
+      cursor : pointer;
+    }
+
+    #submit-button:hover {
+
+      background : rgba(255, 255, 255, 0.5);
+    }
+
+  </style>
+
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script>
+
+    let host = 'http://127.0.0.1:8080/api/'
+
+    window.onload = function () {
+
+      $('#submit-button').click(function() {
+
+        let ru = $("#recive-user").text();
+        let a = $("#amount").val();
+        let rm = $("#remark-msg").text();
+
+        $.post(
+                host + "transfer",
+                {
+                  RID    : ru,
+                  Amount : a ,
+                  Msg    : rm
+                },
+                (data) => {
+
+                  if (data.code == 200) {
+
+                    window.location.href = "http://127.0.0.1:8080/account"
+                  }
+                }
+        );
+      });
+    }
+  </script>
+</head>
+
+<body>
+
+<div id = "nav_bar">
+
+  <table border = 0>
+
+    <tr>
+      <td>
+        <ul id = "nav_left_side">
+          <li>首页</li>
+          <li><a href = "http://127.0.0.1:8080/account">账户</a></li>
+          <li>安全</li>
+        </ul>
+      </td>
+      <td>
+        <ul id = "nav_right_side">
+          <li id = "btn-logout">退出登录</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p class = "tips">请输入接受方的 ID</p>
+<p class = "text-edit" id = "recive-user" contenteditable = "true"></p>
+<p class = "tips">请输入金额</p>
+<input class = "text-edit" id = "amount" contenteditable = "true" pattern=[0-9]* oninput="value=value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g,'$1')"></input>
+<p class = "tips">请输入备注信息</p>
+<p class = "text-edit" id = "remark-msg" contenteditable = "true"></p>
+
+<p id = "submit-button">确定转账</p>
+</body>
+</html>

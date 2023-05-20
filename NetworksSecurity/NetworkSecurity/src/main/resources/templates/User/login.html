@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>登陆 | 一坨作业</title>
+
+    <meta charset = "UTF-8"/>
+    <meta name = "author" content = "SeeChen" />
+
+    <style>
+
+        * {
+            margin : 0;
+            padding : 0;
+        }
+
+        html, body {
+
+            background : #212F3D;
+        }
+
+        #main-area {
+
+            width : 80%;
+            position : fixed;
+            height : 80vh;
+            background : rgba(255, 255, 255, 0.25);
+            left : 0;
+            right : 0;
+            top : 0;
+            bottom : 0;
+            margin : auto;
+            border-radius: 1em;
+            box-shadow: 5px 5px 5px #000;
+        }
+
+        #title {
+
+            color : #fff;
+            font-size : 2em;
+            text-align : center;
+            margin : 0.5em 1em;
+        }
+
+        .tips {
+
+            color : #fff;
+            font-size : 1.5em;
+            margin : 2.5em auto 0.5em;
+            width : 90%;
+        }
+
+        .tips::after {
+
+            content : " : "
+        }
+
+        .user-input {
+
+            color : #fff;
+            font-size: 1.5em;
+            width : 90%;
+            margin : auto;
+            border : 0.15em solid #ccc;
+            padding : 0.25em 1em;
+            border-radius : 1em;
+        }
+
+        #user-p {
+
+            -webkit-text-security: disc;
+        }
+
+        #submit-button {
+
+            color : #fff;
+            width  : 25%;
+            padding : 0.5em;
+            font-size : 1.5em;
+            margin : 1.5em auto;
+            text-align : center;
+            border-radius : 1em;
+            border : 0.15em solid #ccc;
+            transition : all 0.5s;
+            background : rgba(255, 255, 255, 0);
+            cursor : pointer;
+        }
+
+        #submit-button:hover {
+
+            background : rgba(255, 255, 255, 0.5);
+        }
+
+    </style>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        let host = 'http://127.0.0.1:8080/api/'
+
+        window.onload = function () {
+
+            $('#submit-button').click(function() {
+
+                let user_e = $("#user-e").text();
+                let user_p = $("#user-p").text();
+
+                $.post(
+                    host + "login",
+                    {
+                        e : user_e,
+                        p : user_p
+                    },
+                    (data) => {
+
+                        window.location.href = "http://127.0.0.1:8080/account"
+                    }
+                );
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div id = "main-area">
+
+    <p id = "title">登陆 | 一坨作业</p>
+
+    <p class = "tips">请输入您的电子邮箱</p>
+    <p class = "user-input" id = "user-e" contenteditable = "true"></p>
+
+    <p class = "tips">请输入您的密码</p>
+    <p class = "user-input" id = "user-p" contenteditable = "true"></p>
+
+    <p id = "submit-button">登陆</p>
+</div>
+</body>
+</html>

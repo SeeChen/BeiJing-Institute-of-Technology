@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>用户名的个人界面</title>
+
+  <meta charset = "UTF-8" />
+
+  <meta name = "author" content = "SeeChen"/>
+
+  <style>
+
+    * {
+
+      padding : 0;
+      margin : 0;
+    }
+
+    html, body {
+
+      background : #212F3D
+    }
+
+    #nav_bar {
+
+      width : 95%;
+      height : 4em;
+      position : fixed;
+      margin : 1em auto;
+      left : 0;
+      right : 0;
+      background : rgba(234, 236, 238, 0.5);
+      border-radius: 1em;
+      backdrop-filter: blur(0.25em);
+      box-shadow: 1px 5px 5px #000;
+      z-index: 100;
+      top : 0;
+    }
+
+    #nav_bar table {
+
+      table-layout: fixed;
+      width : 95%;
+      height : 100%;
+      margin : auto;
+      text-align : center;
+    }
+
+    #nav_bar table ul {
+
+      list-style-type:  none;
+    }
+
+    #nav_bar table #nav_right_side li {
+
+      float : right;
+    }
+
+    #nav_bar table #nav_left_side li {
+
+      float : left;
+      color : #fff;
+      padding : 0.5em;
+      cursor: pointer;
+      transition : color 0.15s;
+    }
+
+    #nav_bar table #nav_left_side li:hover {
+
+      color : rgba(255, 255, 255, 0.5);
+    }
+
+    #btn-logout {
+
+      color : red;
+      border-radius : 1em;
+      border : 2px solid red;
+      padding : 0.5em 1em;
+      cursor: pointer;
+      transition : all 0.5s;
+    }
+
+    #btn-logout:hover {
+
+      background : rgba(255, 255, 255, 0.5);
+    }
+
+    #user-balance {
+
+      color: white;
+      font-size : 4em;
+      margin : 1.5em 1.5em 0.25em;
+      text-align : center;
+    }
+
+    .emm-idk {
+
+      color : #fff;
+      font-size: 1.5em;
+      margin : 5px;
+      text-align: center;
+    }
+
+    #transfer-record {
+
+      width : 85%;
+      margin : auto;
+      color : #fff;
+      font-size : 2em;
+      table-layout: fixed;
+    }
+
+    #transfer-record tr {
+
+      border-bottom: 1px solid #fff;
+      cursor: pointer;
+    }
+
+    #transfer-record tr td{
+
+      padding : 0.5em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .transferID {
+
+      padding-left : 1em;
+    }
+
+    .table-amount {
+
+      text-align : right;
+      padding-right : 1em;
+    }
+
+    .income {
+      color : #0f0;
+    }
+
+    .outlay {
+
+      color : #f00;
+    }
+
+  </style>
+
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script>
+
+    window.onload = function () {
+
+      $.getJSON(
+          "http://127.0.0.1:8080/api/info",
+          function (result) {
+
+            $("title:eq(0)").text(result.data.uname)
+
+            $("#user-name").html(result.data.uname)
+            $("#user-id").html(result.data.uid)
+            $("#user-email").html(result.data.uemail)
+            $("#user-dob").html(result.data.datebirth)
+            $("#user-intro").html(result.data.uintro)
+
+            $("#user-balance").html("RM " + result.data.balance)
+
+            for (let i = 0; i < result.data.transferRecord.length; i++) {
+
+              $.getJSON("http://127.0.0.1:8080/api/transferList?TID=" + result.data.transferRecord[i],
+                      function (transferR) {
+                        $("#transfer-record").html(
+                                $("#transfer-record").html() +
+                                "<tr onClick='trOnclick(this)'>" +
+                                "<td class ='transferID' colSpan='3'>" + transferR.data.tid + "</td>" +
+                                "<td class ='message' colSpan='5'>" + transferR.data.message + "</td>" +
+                                "<td class ='table-amount'>" + transferR.data.amount + "</td>" +
+                                "</tr>"
+                        )
+                      }
+              )
+            }
+          }
+      )
+    }
+
+    function trOnclick(a) {
+
+      let detail = $(a).find(".transferID")[0].innerText
+      window.open("http://127.0.0.1:8080/transfer/" + detail)
+    }
+  </script>
+</head>
+
+<body>
+
+<div id = "nav_bar">
+
+  <table border = 0>
+
+    <tr>
+      <td>
+        <ul id = "nav_left_side">
+          <li>首页</li>
+          <li><a href = "http://127.0.0.1:8080/transfer">转账</a></li>
+          <li>安全</li>
+        </ul>
+      </td>
+      <td>
+        <ul id = "nav_right_side">
+          <li id = "btn-logout">退出登录</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p id = "user-balance">RM 100.00</p>
+<p class = "emm-idk" id = "user-name"></p>
+<p class = "emm-idk" id = "user-id"></p>
+<p class = "emm-idk" id = "user-email"></p>
+<p class = "emm-idk" id = "user-dob"></p>
+<p class = "emm-idk" id = "user-intro"></p>
+
+<hr style="width : 90%; text-align : center; margin : 1.5em auto;">
+
+<table border = 0 id = "transfer-record">
+<!--  <tr onclick = "trOnclick(this)">-->
+<!--    <td class = "transferID" colspan="3">id1</td>-->
+<!--    <td class = "message" colspan="6">message</td>-->
+<!--    <td class = "table-amount">amount</td>-->
+<!--  </tr>-->
+</table>
+
+
+<br><br><br><br>
+</body>
+</html>
