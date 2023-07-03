@@ -1,0 +1,129 @@
+*{
+	padding:0;
+	margin:0;
+}
+body::-webkit-scrollbar{
+	display:none;
+}
+html,body{
+	scroll-behavior: smooth;
+	background:#EDF1EC;
+	height:100%;
+	user-select:none;
+	color:#1aa260;
+	transition:all 0.5s;
+}
+.Title{
+	font-size:2.5em;
+	font-family:"impact";
+	padding:0.25em 1em;
+	width:100%;
+}
+#questionsBody{
+	padding:0 4em 2em;
+}
+#descript{
+	font-family:"simsun";
+	font-size:1.2em;
+}
+fieldset{
+	padding:2em 3em;
+	border:0.25em dashed #1aa260;
+	border-radius:2em;
+	margin-top:2em;
+	margin-bottom:2em;
+}
+legend{
+	font-size:1.5em;
+	padding:0 1em;
+	font-family:"ink free";
+	font-weight:bold;
+}
+form{
+	font-family:simsun;
+	font-size:1.2em;
+	font-weight:bold;
+}
+.textStyle{
+	outline-style:none;
+	border:0.15em solid #1aa260;
+	border-radius:1em;
+	padding:0.25em 1em;
+	color:#1aa260;
+	font-size:0.8em;
+	font-family:"ink free","KaiTi";
+	font-weight:bold;
+	width:25%;
+	transition:all 0.5s;
+}
+.textStyle:focus{
+    border-color: #5FFF37;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(154,253,129,.6);
+}
+.textStyle::placeholder{
+	font-style:italic;
+	color:#80E353;
+}
+.illustrate{
+	font-family:impact;
+	font-size:1.5em;
+	margin-bottom:1em;
+}
+.QuestionNum{
+	font-size:1.2em;
+	margin:1em 0 0;
+}
+.QContent{
+	margin:0 1em 0.3em;
+	font-size:1.1em;
+}
+input[type="radio"]{
+	width:1.2em;
+	height:1.2em;
+	margin:1em;
+}
+input[type="checkbox"]{
+	width:1.5em;
+	height:1.5em;
+	margin:1em;
+}
+.QAns{
+	width:20%;
+	margin-left:2em;
+}
+#submitBtn{
+	font-size:1.5em;
+	width:100%;
+	border:0.15em solid #1aa260;
+	border-radius:1em;
+	background:#A5F772;
+	font-family:fangsong;
+	transition:all 0.5s;
+	cursor:pointer;
+}
+#submitBtn:hover{
+	 border-color: #5FFF37;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(154,253,129,.6);
+	transition:all 0.5s;
+}
+#noComplete{
+	width:100%;
+	height:100vh;
+	background-color:rgba(0,0,0,0.7);
+	backdrop-filter:blur(0.6em);
+	position:fixed;
+	z-index:100;
+	top:0;
+	transition:all 0.5s;
+	display:none;
+}
+#result{
+	background:#EDF1EC;
+	width:100%;
+	height:100vh;
+	z-index:99;
+	position:fixed;
+	top:0;
+	display:none;
+}

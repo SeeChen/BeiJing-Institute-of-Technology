@@ -1,0 +1,348 @@
+*{
+	padding:0;
+	margin:0;
+}
+body::-webkit-scrollbar{
+	display:none;
+}
+html,body{
+	scroll-behavior: smooth;
+	background:#EDF1EC;
+	height:100%;
+	user-select:none;
+	
+	transition:all 0.5s;
+}
+@keyframes laodingAnimation{
+	0%{
+		transform:rotate(-15deg);
+	}
+	50%{
+		transform:rotate(15deg);
+	}
+	100%{
+		transform:rotate(-15deg);
+	}
+}
+#laodingContent{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:#ffffff;
+	z-index:10000000000000;
+	transition:all 0.5s;
+	opacity:1;
+}
+#laodingContent img{
+	background:url(../materials/happy.jpg);
+	animation:laodingAnimation 1s linear infinite;
+	border-radius:100%;
+	height:8em;
+	width:8em;
+	position:absolute;
+	background-size:cover;
+	background-position:center;
+	margin:auto;
+	display:block;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+.top_Bar_Dis{
+	height:3em;
+	width:100%;
+}
+#top_Bar{
+	height:6em;
+	width:100%;
+	position:fixed;
+	transition:all 0.5s;
+	z-index:100;
+}
+#greeting{
+	color:#1aa260;
+	font-size:3em;
+	position:absolute;
+	bottom:0.2em;
+	left:1em;
+	font-family:"ink free";
+	
+	transition:all 0.5s;
+}
+#greeting:before,#greeting:after{
+	content:" - ";
+}
+
+#time_Module{
+	font-family:simsun;
+	color:#ffffff;
+	text-shadow:1px 1px 1px #1F1F1F;
+	font-size:2em;
+	position:absolute;
+	right:0.2em;
+	top:0.1em;
+	cursor:pointer;
+}
+
+.profile_Picture{
+	background-image:url(../materials/profile.png);
+}
+.schedule_Icon{
+	background-image:url(../materials/schedule.png);
+}
+.favorite_Picture{
+	background-image:url(../materials/favorite.jpg);
+}
+.mood_Picture{
+	background-image:url(../materials/mood.png);
+}
+.friend_Picture{
+	background-image:url(../materials/friend.png);
+}
+.head_Bar{
+	width:100%;
+	height:8em;
+}
+.icon_Side{
+	width:8em;
+}
+.title_Icon{
+	border-radius:100%;
+	height:8em;
+	width:8em;
+	background-position:center center;
+	background-size:cover;
+}
+.title_Descript{
+	padding-left:2em;
+	padding-top:1em;
+}
+.content_Title{
+	font-family:"impact";
+	color:#1aa260;
+	font-size:4em;
+	font-weight:bold;
+}
+.content_Descript{
+	color:#9A9A9A;
+	font-family:"ink free","kaiti";
+	font-size:1.2em;
+	font-weight:bold;
+}
+.content_Descript:before,.content_Descript:after{
+	content:" ~ ";
+}
+
+.detail{
+	background:#D5C119;
+	margin:1em 2em;
+	padding:1em 2.5em;
+	box-shadow:5px 5px 5px #1e1e1e;
+	border-radius:1em 0 1em 0;
+}
+.detail p{
+	text-indent:2em;
+	font-family:"ink free";
+	color:#323232;
+	font-size:1.5em;
+	text-shadow:1px 1px 0 #fff;
+}
+.important_Word{
+	color:#f00;
+	text-shadow:0 0 0 #000;
+	font-weight:bold;
+	cursor:url(../materials/cursor.jpg),default;
+}
+
+#schedule_Table{
+	table-layout:fixed;
+	width:100%;
+	text-align:center;
+	border-radius:1em;
+	border:0.15em solid #1aa260;
+	margin-top:2em;
+	border-spacing:0.1em;
+}
+#schedule_Table td{
+	color:#1aa260;
+	font-size:1.1em;
+	padding:1em;
+}
+.time{
+	font-weight:bold;
+	font-family:"impact";
+	border-right:0.15em solid #1aa260;
+}
+.week{
+	font-weight:bold;
+	font-family:"impact";
+	border-bottom:0.15em solid #1aa260;
+}
+.course{
+	border:0.15em dashed #1aa260;
+	border-radius:1em;
+	font-family:"ink free";
+	font-size:1.1em;
+	overflow:hidden;
+}
+
+#favorite{
+	width:100%;
+	margin-top:2em;
+}
+.favorite_Detials{
+	height:25em;
+	border:0.15em solid #1aa260;
+	border-radius:1em;
+	display:inline-block;
+	width:29%;
+	text-decoration:none;
+	color:#555;
+	padding:1em;
+	background-size:cover;
+	background-position:top center;
+	position:relative;
+	transition:all 0.5s;
+}
+#favorite_Movie{
+	background-image:url(../materials/weathering.jpg);
+	transition:all 0.5s;
+}
+#favorite_Show{
+	background-image:url(../materials/show.jpg);
+	transition:all 0.5s;
+}
+#favorite_Book{
+	background-image:url(../materials/book.jpg);
+	transition:all 0.5s;
+}
+.favorite_Detials:hover .hover_Style{
+	opacity:1;
+}
+#favorite_Movie:hover{
+	background-image:url(../materials/weatheringC.jpg);
+	transition:all 0.5s;
+}
+#favorite_Show:hover{
+	background-image:url(../materials/showC.jpeg);
+	transition:all 0.5s;
+}
+#favorite_Book:hover{
+	background-image:url(../materials/bookC.jpg);
+	transition:all 0.5s;
+}
+.hover_Style{
+	color:#fff;
+	text-shadow:1px 1px 0 #111;
+	font-family:"simsun";
+	position:absolute;
+	bottom:1em;
+	transition:all 0.5s;
+	opacity:0;
+}
+.favorite_Title{
+	font-size:1.5em;
+	margin:0.25em 0;
+}
+.length{
+	font-size:1.2em;
+	margin:0.1em 0;
+}
+.rate{
+	position:relative;
+	height:1em;
+}
+.rateSide{
+	font-size:1.2em;
+	display:inline-block;
+}
+.rateBg{
+	background-image:url(../materials/unrate.png);
+	display:inline-block;
+	position:relative;
+	height:1em;
+	line-height:1em;
+	width:6.5em;
+	background-size:contain;
+}
+.reted{
+	position:absolute;
+	left:0;
+	top:0;
+	display:block;
+	height:100%;
+	background-image:url(../materials/rate.png);
+	background-size:cover;
+	background-position:left center;
+}
+@keyframes emojiAnimation{
+	0%{
+		transform:rotate(-15deg);
+	}
+	50%{
+		transform:rotate(15deg);
+	}
+	100%{
+		transform:rotate(-15deg);
+	}
+}
+.emoji{
+	width:15em;
+	border-radius:100%;
+	margin:0 5em;
+	animation:emojiAnimation 1s linear infinite;
+}
+
+#navigation_Bar{
+	width:100%;
+	position:fixed;
+	bottom:0;
+	background:rgba(255,255,255,0.6);
+	backdrop-filter:blur(0.6em);
+	height:3em;
+	box-shadow:-1px -1px 5px #130f30;
+	z-index:50;
+	white-space:nowrap;
+	overflow:overlay hidden;
+}
+#navigation_Bar::-webkit-scrollbar{
+	height:0.5em;
+}
+#navigation_Bar::-webkit-scrollbar-track {
+	background:rgba(0,0,0,0);
+}
+
+#navigation_Bar::-webkit-scrollbar-thumb{
+	background:rgba(152,152,152,0);
+	border-radius:10em;
+}
+#navigation_Bar:hover::-webkit-scrollbar-thumb{
+	background:rgba(152,152,152,0.5);
+}
+#currentLoc{
+	height:3em;
+	background:#1aa260;
+	position:absolute;
+	z-index:40;
+	left:0;
+	transition:all 0.5s;
+}
+.menu_List{
+	font-size:1.5em;
+	height:2em;
+	line-height:2em;
+	width:15%;
+	display:inline-block;
+	text-align:center;
+	color:#969696;
+	cursor:pointer;
+	font-family:"normal";
+	transition:all 0.5s;
+	position:relative;
+	z-index:45;
+	border-right:0.05em solid #ccc;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}

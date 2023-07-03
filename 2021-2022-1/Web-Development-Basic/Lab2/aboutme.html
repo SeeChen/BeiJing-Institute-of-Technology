@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SeeChen's Website</title>
+		
+		<meta charset="UTF-8"/>
+		<meta name="author" content="SeeChen Lee"/>
+		<meta name="revised" content="SeeChen, Monday 27 September 2021 17:43:20 GMT +08:00"/>
+		<meta name="Copyright" content="By SeeChen">
+		<meta http-equiv="Content-Language" content="zh-cn"/>
+		
+		<!-- pages icon -->
+		<link rel="icon" type="img/png" href="./materials/profile.png"/>
+		
+		<!-- import JQuery -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+		
+		<!-- import Cascading Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="./css/home.css"/>
+		
+		<!-- import script -->
+		<script type="text/javascript" src="./script/home.js"></script>
+		<script type="text/javascript" src="./script/mouseClick.js"></script>
+		<script type="text/javascript" src="./script/time.js"></script>
+		<!-- <script type="text/javascript" src="./script/snow.js"></script> -->
+	</head>
+	<body>
+		<div id="laodingContent"><img/></div>
+		<!-- top bar Start -->
+		<div id="top_Bar">
+			<p id="greeting"></p>
+			<!-- Time module -->
+			<p id="time_Module"></p>
+		</div>
+		<!-- top bar End -->
+		
+		<div id="top_Background"></div>
+		
+		<!-- Content Start -->
+		<div style="width:80%;margin:auto;">
+		
+			<!-- about me -->
+			<a name="about"/>
+			<div class="top_Bar_Dis"></div>
+			<table class="head_Bar" border="0">
+				<tr>
+					<td class="icon_Side">
+						<img class="title_Icon profile_Picture"/>
+					</td>
+					<td class="title_Descript">
+						<p class="content_Title">SeeChen</p>
+						<p class="content_Descript">introduce myself</p>
+					</td>
+				</tr>
+			</table>
+			<div class="detail">
+				<p>My name is SeeChen Lee, I'm come from <span class="important_Word">Malaysia</span>. I'm Studing in <span class="important_Word">BeiJing Institute of Technology</span>. My favorite thing to do is <span class="important_Word">Sleeping</span>. 😏😏😏</p>
+			</div>
+			<a name="class"/>
+			<div class="top_Bar_Dis"></div>
+			<table class="head_Bar" border="0">
+				<tr>
+					<td class="icon_Side">
+						<img class="title_Icon schedule_Icon"/>
+					</td>
+					<td class="title_Descript">
+						<p class="content_Title">My Schedule</p>
+						<p class="content_Descript">about my course schedule</p>
+					</td>
+				</tr>
+			</table>
+			
+			<!-- schedule -->
+			<table id="schedule_Table">
+				<tr>
+					<td class="time week">Time</td>
+					<td class="week">Mon</td>
+					<td class="week">Tue</td>
+					<td class="week">Wed</td>
+					<td class="week">Thu</td>
+					<td class="week">Fri</td>
+				</tr>
+				<tr>
+					<td class="time">0800</br>~</br>0845</td>
+					<td class="course" rowspan="2">Java Language Programming</td>
+					<td class="course" rowspan="2">Data Structure and Algorithm Design</td>
+					<td class="course" rowspan="2">Numerical Analysis</td>
+					<td class="course" rowspan="2" colspan="2">Python Language Programming</td>
+				</tr>
+				<tr>
+					<td class="time">0850</br>~</br>0935</td>
+				</tr>
+				<tr>
+					<td class="time">0955</br>~</br>1040</td>
+					<td class="course" rowspan="2">Discrete Mathematics</td>
+					<td></td>
+					<td></td>
+					<td class="course" rowspan="3">Data Structure and Algorithm Design</td>
+					<td class="course" rowspan="2">Introduction to Big Data Technology</td>
+				</tr>
+				<tr>
+					<td class="time">1045</br>~</br>1130</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="time">1135</br>~</br>1220</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="time">1320</br>~</br>1405</td>
+					<td></td>
+					<td class="course" rowspan="2">Physics A II</td>
+					<td></td>
+					<td class="course" rowspan="2">Physics A II</td>
+					<td class="course" rowspan="2">Java Language Programming</td>
+				</tr>
+				<tr>
+					<td class="time">1410</br>~</br>1455</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="time">1515</br>~</br>1600</td>
+					<td class="course" rowspan="2">Probability and Mathematical Statistics</td>
+					<td></td>
+					<td class="course" rowspan="2">Probability and Mathematical Statistics</td>
+					<td class="course" rowspan="2">Discrete Mathematics</td>
+					<td class="course" rowspan="2">Numerical Analysis</td>
+				</tr>
+				<tr>
+					<td class="time">1605</br>~</br>1650</td>
+					<td></td>
+				</tr>
+			</table>
+			
+			<!-- favorite -->
+			<a name="Favorite">
+			<div class="top_Bar_Dis"></div>
+			<table class="head_Bar" border="0">
+				<tr>
+					<td class="icon_Side">
+						<img class="title_Icon favorite_Picture"/>
+					</td>
+					<td class="title_Descript">
+						<p class="content_Title">My Favorite Movie and Book</p>
+						<p class="content_Descript">leisure activities in free time</p>
+					</td>
+				</tr>
+			</table>
+			<div id="favorite">
+				<a href="https://www.imdb.com/title/tt9426210/?ref_=tt_mv_close" target="_blank" class="favorite_Detials" id="favorite_Movie">
+					<div class="hover_Style">
+						<p class="favorite_Title">Weathering with You</p>
+						<p class="length">11 Hours 52 Min</p>
+						<p class="rate">
+							<p class="rateSide">IMDB Rate:</p>
+							<span class="rateBg">
+								<i class="reted" style="width:75%;"></i>
+							</span>
+						</p>
+					</div>
+				</a>
+				<a href="https://www.bilibili.com/bangumi/play/ss36135/" target="_blank" class="favorite_Detials" id="favorite_Show">
+					<div class="hover_Style">
+						<p class="favorite_Title">你好生活</p>
+						<p class="length">12 Episodes</p>
+						<p class="rate">
+							<p class="rateSide">Bilibili Rate:</p>
+							<span class="rateBg">
+								<i class="reted" style="width:99%;"></i>
+							</span>
+						</p>
+					</div>
+				</a>
+				<a href="https://book.douban.com/subject/10517238/" target="_blank" class="favorite_Detials" id="favorite_Book">
+					<div class="hover_Style">
+						<p class="favorite_Title">平凡的世界</p>
+						<p class="length">1264 Pages</p>
+						<p class="rate">
+							<p class="rateSide">DouBan Rate:</p>
+							<span class="rateBg">
+								<i class="reted" style="width:90%;"></i>
+							</span>
+						</p>
+					</div>
+				</a>
+			</div>
+			
+			<!-- mood -->
+			<a name="mood">
+			<div class="top_Bar_Dis"></div>
+			<table class="head_Bar" border="0">
+				<tr>
+					<td class="icon_Side">
+						<img class="title_Icon mood_Picture"/>
+					</td>
+					<td class="title_Descript">
+						<p class="content_Title">My Mood</p>
+						<p class="content_Descript">two pictures that represent my mood</p>
+					</td>
+				</tr>
+			</table>
+			</br></br>
+			<img src="./materials/happy.jpg" class="emoji"/>
+			<img src="./materials/sad.jpg" class="emoji"/>
+			
+			<!-- best friend -->
+			<a name="friend">
+			<div class="top_Bar_Dis"></div>
+			<table class="head_Bar" border="0">
+				<tr>
+					<td class="icon_Side">
+						<img class="title_Icon friend_Picture"/>
+					</td>
+					<td class="title_Descript">
+						<p class="content_Title">My Best Friend</p>
+						<p class="content_Descript">two pictures that represent my mood</p>
+					</td>
+				</tr>
+			</table>
+			<div class="detail">
+				<p>😢😢😢</br>I don’t have a best friend, I'm alone, uncomfortable and want to cry</p>
+				<img style="margin:2em;border:0.15em solid #1aa260;border-radius:100%;box-shadow:5px 5px 5px #555;" src="./materials/emoji.png"/>
+			</div>
+		</div>
+		<!-- Content End -->
+		<div style="width:100%;height:4em;"></div>
+		<!-- Navigation Start -->
+		<div id="navigation_Bar">
+			<span id="currentLoc"></span>
+		</div>
+		<!-- Navigation End -->
+	</body>
+</html>
